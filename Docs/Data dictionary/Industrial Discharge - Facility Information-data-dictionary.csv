@@ -1,0 +1,42 @@
+column,type,label,description
+PERMIT_TYPE,text,Regulatory Measure Type (Permit Type),Type of permit or application.
+APP_ID,text,Regulatory Measure ID (Application ID),"A unique Identification number associated with a storm water application.  Universal number used to link the application to inspections, violations, and enforcement actions."
+WDID,text,Waste Discharge ID,Identification number associated with a waste discharge.
+STATUS,text,Status,-
+NOI_PROCESSED_DATE,timestamp,Processed Date,Date the Notice of Intent was processed
+NOT_EFFECTIVE_DATE,timestamp,-,-
+REGION_BOARD,text,Regional Water Board number,Regional Water Quality Control Board office that has primary responsibility for regulation of the facility: “1” - North Coast; “2” - San Francisco Bay; “3” - Central Coast; “4” - Los Angeles; “5F”- Central Valley (Fresno); “5R” - Central Valley (Redding); “5S” - Central Valley (Sacramento); “6” - Lahontan; “7” - Colorado River; “8” - Santa Ana; “9” - San Diego.
+COUNTY,text,Facility/Site County,County where the regulated facility/site is located.
+OPERATOR_NAME,text,Operator Name,Name of the owner/operator of the regulated facility/site
+FACILITY_NAME,text,Facility/Site Name,Name of the regulated facility.
+FACILITY_ADDRESS,text,Facility/Site Address,"Physical address of the regulated facility/site, which is not necessarily the mailing address."
+FACILITY_ADDRESS_2,text,-,-
+FACILITY_CITY,text,Facility/Site City,City where the regulated facility/site is located.
+FACILITY_STATE,text,Facility/Site State,State where the regulated facility/site is located.
+FACILITY_ZIP,text,Facility/Site Zip,United States 5 digit zip code for the location of the regulated facility/site.
+FACILITY_LATITUDE,numeric,Facility/Site Latitude,"Latitude used to map the regulated facility/site, expressed in decimal degrees."
+FACILITY_LONGITUDE,numeric,Facility/Site Longitude,"Longitude used to map the regulated facility/site, expressed in decimal degrees."
+FACILITY_COUNTY,text,Facility/Site County,County where the regulated facility/site is located.
+FACILITY_CONTACT_FIRST_NAME,text,-,-
+FACILITY_CONTACT_LAST_NAME,text,-,-
+FACILITY_TITLE,text,-,-
+FACILITY_PHONE,text,-,-
+FACILITY_EMAIL,text,-,-
+FACILITY_TOTAL_SIZE,numeric,Facility/Site Size,Area of the regulated facility expressed in acres or square feet
+FACILITY_TOTAL_SIZE_UNIT,text,Facility/Site Size Unit,Unit of measure of the facility size (Acres or SqFt).
+FACILITY_AREA_ACTIVITY,numeric,-,-
+FACILITY_AREA_ACTIVITY_UNIT,text,-,-
+PERCENT_OF_SITE_IMPERVIOUSNESS,numeric,-,-
+PRIMARY_SIC,text,Primary SIC,Primary Standard Industrial Classification code.
+SECONDARY_SIC,text,Secondary SIC,Secondary Standard Industrial Classification code.
+TERTIARY_SIC,text,Tertiary SIC,Tertiary Standard Industrial Classification code.
+RECEIVING_WATER_NAME,text,-,-
+INDIRECTLY,text,-,-
+DIRECTLY,text,-,-
+CERTIFIER_BY,text,-,-
+CERTIFIER_TITLE,text,-,-
+CERTIFICATION_DATE,timestamp,-,-
+QUESTION_TMDL_ANSWER,text,-,-
+NOI_PROCESSED_TIMESTAMP,timestamp,-,-
+NOT_EFFECTIVE_TIMESTAMP,timestamp,-,-
+CERTIFICATION_TIMESTAMP,timestamp,-,-
