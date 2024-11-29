@@ -1,0 +1,22 @@
+-- Insert data into Dim_Facilities
+INSERT INTO Dim_Facilities (Facility_Name, Facility_Address, Facility_City, Facility_State)
+SELECT DISTINCT Facility_Name, Facility_Address_1, Facility_City, Facility_State
+FROM Raw_Facility_Data; -- Replace with your source table name
+
+-- Insert data into Dim_Time
+INSERT INTO Dim_Time (Year, Month, Day)
+SELECT DISTINCT YEAR(NOI_PROCESSED_DATE), MONTH(NOI_PROCESSED_DATE), DAY(NOI_PROCESSED_DATE)
+FROM Raw_Facility_Data; -- Replace with your source table name
+
+-- Insert data into Fact_Permits
+INSERT INTO Fact_Permits (Facility_Key, Time_Key, Permit_Count, Status)
+SELECT 
+    f.Facility_Key,
+    t.Time_Key,
+    COUNT(*) AS Permit_Count,
+    r.Status
+FROM Raw_Facility_Data r -- Replace with your source table name
+JOIN Dim_Facilities f ON r.Facility_Name = f.Facility_Name
+JOIN Dim_Time t ON YEAR(r.NOI_PROCESSED_DATE) = t.Year AND MONTH(r.NOI_PROCESSED_DATE) = t.Month AND DAY(r.NOI_PROCESSED_DATE) = t.Day
+GROUP BY f.Facility_Key, t.Time_Key, r.Status;
+

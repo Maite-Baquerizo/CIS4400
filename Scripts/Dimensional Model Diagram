@@ -1,0 +1,23 @@
+Table Dim_Facilities {
+    Facility_Key INT [pk]
+    Facility_Name VARCHAR
+    Facility_Address VARCHAR
+    Facility_City VARCHAR
+    Facility_State VARCHAR
+}
+
+Table Dim_Time {
+    Time_Key INT [pk]
+    Year INT
+    Month INT
+    Day INT
+}
+
+Table Fact_Permits {
+    Permit_Key INT [pk]
+    Facility_Key INT [ref: > Dim_Facilities.Facility_Key]
+    Time_Key INT [ref: > Dim_Time.Time_Key]
+    Permit_Count INT
+    Status VARCHAR
+}
+

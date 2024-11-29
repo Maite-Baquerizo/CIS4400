@@ -1,0 +1,28 @@
+-- Create Dim_Facilities Table
+CREATE TABLE Dim_Facilities (
+    Facility_Key INT AUTO_INCREMENT PRIMARY KEY,
+    Facility_Name VARCHAR(255) NOT NULL,
+    Facility_Address VARCHAR(255),
+    Facility_City VARCHAR(100),
+    Facility_State VARCHAR(50)
+);
+
+-- Create Dim_Time Table
+CREATE TABLE Dim_Time (
+    Time_Key INT AUTO_INCREMENT PRIMARY KEY,
+    Year INT NOT NULL,
+    Month INT,
+    Day INT
+);
+
+-- Create Fact_Permits Table
+CREATE TABLE Fact_Permits (
+    Permit_Key INT AUTO_INCREMENT PRIMARY KEY,
+    Facility_Key INT NOT NULL,
+    Time_Key INT NOT NULL,
+    Permit_Count INT NOT NULL,
+    Status VARCHAR(50),
+    FOREIGN KEY (Facility_Key) REFERENCES Dim_Facilities(Facility_Key),
+    FOREIGN KEY (Time_Key) REFERENCES Dim_Time(Time_Key)
+);
+
