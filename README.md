@@ -28,7 +28,7 @@ Validation of Provided Data:
 
 Source: The uploaded dataset is acceptable as it does not come from Kaggle or include aggregate data.
 
-Structure: Verify if it contains at least 10 columns and more than 7500 rows. (I’ll inspect this dataset in the next step.)
+Structure: Verify if it contains at least 10 columns and more than 7500 rows. 
 
 Content: Ensure data does not relate to stock or bitcoin markets.
 
