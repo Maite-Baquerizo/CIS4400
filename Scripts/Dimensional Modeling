@@ -1,28 +1,59 @@
--- Create Dim_Facilities Table
-CREATE TABLE Dim_Facilities (
-    Facility_Key INT AUTO_INCREMENT PRIMARY KEY,
-    Facility_Name VARCHAR(255) NOT NULL,
-    Facility_Address VARCHAR(255),
-    Facility_City VARCHAR(100),
-    Facility_State VARCHAR(50)
-);
+CREATE SCHEMA id;
 
--- Create Dim_Time Table
-CREATE TABLE Dim_Time (
-    Time_Key INT AUTO_INCREMENT PRIMARY KEY,
-    Year INT NOT NULL,
-    Month INT,
-    Day INT
-);
+CREATE TABLE `id-homework`.id.Dim_Facilities ( 
+	Facility_Key int64 NOT NULL  ,
+	Facility_Name string NOT NULL  ,
+	Facility_Address string  ,
+	Facility_City string  ,
+	Facility_State string  
+ );
 
--- Create Fact_Permits Table
-CREATE TABLE Fact_Permits (
-    Permit_Key INT AUTO_INCREMENT PRIMARY KEY,
-    Facility_Key INT NOT NULL,
-    Time_Key INT NOT NULL,
-    Permit_Count INT NOT NULL,
-    Status VARCHAR(50),
-    FOREIGN KEY (Facility_Key) REFERENCES Dim_Facilities(Facility_Key),
-    FOREIGN KEY (Time_Key) REFERENCES Dim_Time(Time_Key)
-);
+ALTER TABLE `id-homework`.id.Dim_Facilities ADD PRIMARY KEY ( Facility_Key )  NOT ENFORCED;
 
+CREATE TABLE `id-homework`.id.Dim_Time ( 
+	Time_Key int64 NOT NULL  ,
+	Year int64 NOT NULL  ,
+	Month int64  ,
+	Day int64  
+ );
+
+ALTER TABLE `id-homework`.id.Dim_Time ADD PRIMARY KEY ( Time_Key )  NOT ENFORCED;
+
+CREATE TABLE `id-homework`.id.Facts_Permits ( 
+	Permit_Key int64 NOT NULL  ,
+	Permit_Count int64 NOT NULL  ,
+	Status string  ,
+	Facility_Key int64  ,
+	Time_Key int64  
+ );
+
+ALTER TABLE `id-homework`.id.Facts_Permits ADD PRIMARY KEY ( Permit_Key )  NOT ENFORCED;
+
+CREATE TABLE `id-homework`.id.industrialdataset ( 
+	PERMIT_TYPE string  ,
+	APP_ID int64  ,
+	WDID string  ,
+	STATUS string  ,
+	NOI_PROCESSED_DATE string  ,
+	REGION_BOARD string  ,
+	COUNTY string  ,
+	OPERATOR_NAME string  ,
+	FACILITY_NAME string  ,
+	FACILITY_ADDRESS string  ,
+	FACILITY_CITY string  ,
+	FACILITY_STATE string  ,
+	FACILITY_ZIP string  ,
+	FACILITY_LATITUDE string  ,
+	FACILITY_LONGITUDE string  ,
+	FACILITY_COUNTY string  ,
+	FACILITY_CONTACT_FIRST_NAME string  ,
+	FACILITY_CONTACT_LAST_NAME string  ,
+	FACILITY_PHONE string  ,
+	FACILITY_TOTAL_SIZE string  ,
+	FACILITY_TOTAL_SIZE_UNIT string  ,
+	PRIMARY_SIC string  
+ );
+
+ALTER TABLE `id-homework`.id.Facts_Permits ADD CONSTRAINT fk_Facts_Permits_Dim_Facilities FOREIGN KEY ( Facility_Key ) REFERENCES `id-homework`.id.Dim_Facilities( Facility_Key ) NOT ENFORCED;
+
+ALTER TABLE `id-homework`.id.Facts_Permits ADD CONSTRAINT fk_Facts_Permits_Dim_Time FOREIGN KEY ( Time_Key ) REFERENCES `id-homework`.id.Dim_Time( Time_Key ) NOT ENFORCED;

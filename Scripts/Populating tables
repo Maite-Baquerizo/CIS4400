@@ -1,14 +1,14 @@
 -- Insert data into Dim_Facilities
 INSERT INTO Dim_Facilities (Facility_Name, Facility_Address, Facility_City, Facility_State)
 SELECT DISTINCT Facility_Name, Facility_Address_1, Facility_City, Facility_State
-FROM Raw_Facility_Data; -- Replace with your source table name
+FROM Raw_Facility_Data; -
 
 -- Insert data into Dim_Time
 INSERT INTO Dim_Time (Year, Month, Day)
 SELECT DISTINCT YEAR(NOI_PROCESSED_DATE), MONTH(NOI_PROCESSED_DATE), DAY(NOI_PROCESSED_DATE)
-FROM Raw_Facility_Data; -- Replace with your source table name
+FROM Raw_Facility_Data; 
 
--- Insert data into Fact_Permits
+
 INSERT INTO Fact_Permits (Facility_Key, Time_Key, Permit_Count, Status)
 SELECT 
     f.Facility_Key,
