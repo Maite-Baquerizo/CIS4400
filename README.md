@@ -1,38 +1,22 @@
-# Analysis Of Electric Vehicle Population Data
+# Analysis Of Industrial Discharge - Facility Information
+
 ## Business Requirements
-Explore the adoption trends, patterns, and geographic distribution of electric vehicles (EVs). Identify factors influencing EV adoption, such as incentives, population density, or infrastructure.
+-Monitor Compliance: The system will track industrial facilities' compliance with environmental permits.
 
+-Analyze Discharge Patterns: Identify patterns or trends in water discharge across different facilities and counties.
 
-List Requirements:
-
-Requirement 1: Understand the geographic distribution of EVs at state or city levels.
-
-Requirement 2: Identify trends in vehicle models, manufacturers, and battery types.
-
-Requirement 3: Provide insights for policy recommendations or infrastructure planning.
+-Improve Transparency: Provide insights into permit statuses and facility operational details for regulatory authorities.
 
 ## Functional Requirements
-Requirement 1: Load and preprocess the dataset to ensure data quality and consistency.
+-The system should allow users to search for facilities by permit type, county, and compliance status.
 
-Requirement 2: Generate visualizations for geographic and temporal trends in EV adoption.
+-It should generate trend reports on discharge data over time.
 
-Requirement 3: Develop filters for users to explore data by manufacturer, model, or region.
+-Provide alerts for facilities with inactive or terminated permits.
 
-Requirement 4: Provide an exportable report summarizing key findings.
+-Visualize geographic data to locate high-risk regions for environmental monitoring.
 
-Requirement 5: Ensure secure access and version control for scripts and reports using GitHub.
-
+-Export filtered data in CSV or Excel formats for further analysis.
 
 ## Data Requirements
-Validation of Provided Data:
-
-Source: The uploaded dataset is acceptable as it does not come from Kaggle or include aggregate data.
-
-Structure: Verify if it contains at least 10 columns and more than 7500 rows. 
-
-Content: Ensure data does not relate to stock or bitcoin markets.
-
-Data Sourcing Methodology:
-Connect directly to CSV for this project.
-
-Document field descriptions, datatypes, and constraints in a data dictionary.
+The data that I chose is from data.ca.gov <https://data.ca.gov/dataset/stormwater-regulatory-including-enforcement-actions-information-and-water-quality-results/resource/33e69394-83ec-4872-b644-b9f494de1824>
