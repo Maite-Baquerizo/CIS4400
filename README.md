@@ -1,24 +1,40 @@
 # Analysis Of Industrial Discharge - Facility Information
+The purpose of this project is to define the information architecture for managing and analyzing industrial discharge and facility-related data. The architecture ensures logical grouping, metadata definitions, and relationships to support efficient data management.
 
 ## Business Requirements
--Monitor Compliance: The system will track industrial facilities' compliance with environmental permits.
+Enable detailed tracking of facility-level compliance with regulatory measures.
 
--Analyze Discharge Patterns: Identify patterns or trends in water discharge across different facilities and counties.
+Provide insights into environmental impacts through comprehensive data analysis.
 
--Improve Transparency: Provide insights into permit statuses and facility operational details for regulatory authorities.
+Facilitate streamlined certification processes for industrial permits.
 
 ## Functional Requirements
--The system should allow users to search for facilities by permit type, county, and compliance status.
 
--It should generate trend reports on discharge data over time.
+Import, validate, and store facility data, including geographic and operational details.
 
--Provide alerts for facilities with inactive or terminated permits.
+Enable query and reporting capabilities for regulatory compliance tracking.
 
--Visualize geographic data to locate high-risk regions for environmental monitoring.
+Provide visualization tools for environmental data analysis.
 
--Export filtered data in CSV or Excel formats for further analysis.
+Automate certification record management, including timestamps and certifier details.
+
+Ensure secure, role-based access to sensitive data categories.
 
 ## Data Requirements
+Data Selection Criteria
+
+The dataset contains at least 10 columns and over 7500 rows.
+
+Data is unaggregated, ensuring granularity for analysis.
+
+Data is sourced independently of common repositories like Kaggle.
+
+Dataset Description
+
+Columns: 41, covering regulatory, facility, environmental, and certification data.
+
+Rows: Exceeds 7500, ensuring comprehensive coverage of industrial discharge data.
+
 The data that I chose is from data.ca.gov <https://data.ca.gov/dataset/stormwater-regulatory-including-enforcement-actions-information-and-water-quality-results/resource/33e69394-83ec-4872-b644-b9f494de1824>
 
 ## Visualization
