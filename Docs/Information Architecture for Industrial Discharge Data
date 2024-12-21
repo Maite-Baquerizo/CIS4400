@@ -1,0 +1,157 @@
+1. Overview
+
+The purpose of this document is to define the information architecture for managing and analyzing industrial discharge and facility-related data. The architecture ensures logical grouping, metadata definitions, and relationships to support efficient data management.
+
+2. Core Entities
+
+1. Regulatory Measures
+
+Description: Represents permits and applications for industrial discharges.
+
+Key Attributes:
+
+PERMIT_TYPE: Type of permit or application (e.g., Industrial).
+
+APP_ID: Unique identifier for the application.
+
+WDID: Waste Discharge ID.
+
+STATUS: Current status of the permit/application.
+
+NOI_PROCESSED_DATE: Date when the Notice of Intent was processed.
+
+NOT_EFFECTIVE_DATE: Date when the permit became ineffective.
+
+2. Facility Information
+
+Description: Details about facilities involved in industrial discharges.
+
+Key Attributes:
+
+Location:
+
+FACILITY_NAME
+
+FACILITY_ADDRESS
+
+FACILITY_CITY, FACILITY_STATE, FACILITY_ZIP
+
+FACILITY_LATITUDE, FACILITY_LONGITUDE
+
+Ownership:
+
+OPERATOR_NAME: Name of the operator.
+
+FACILITY_CONTACT_FIRST_NAME, FACILITY_CONTACT_LAST_NAME: Contact person.
+
+FACILITY_TITLE: Contact person’s title.
+
+FACILITY_PHONE, FACILITY_EMAIL
+
+Size and Activity:
+
+FACILITY_TOTAL_SIZE and FACILITY_TOTAL_SIZE_UNIT
+
+FACILITY_AREA_ACTIVITY and FACILITY_AREA_ACTIVITY_UNIT
+
+PERCENT_OF_SITE_IMPERVIOUSNESS
+
+3. Environmental Information
+
+Description: Tracks interactions between facilities and the environment.
+
+Key Attributes:
+
+RECEIVING_WATER_NAME: Name of the receiving water body.
+
+INDIRECTLY / DIRECTLY: Modes of discharge.
+
+PRIMARY_SIC, SECONDARY_SIC, TERTIARY_SIC: Standard Industry Classification codes.
+
+4. Certification Details
+
+Description: Information on permit certifications.
+
+Key Attributes:
+
+CERTIFIER_BY: Name of the certifier.
+
+CERTIFIER_TITLE: Title of the certifier.
+
+CERTIFICATION_DATE: Date of certification.
+
+CERTIFICATION_TIMESTAMP: Timestamp of the certification event.
+
+5. Timestamps and Metadata
+
+Description: Ensures traceability and version control.
+
+Key Attributes:
+
+NOI_PROCESSED_TIMESTAMP: Timestamp for NOI processing.
+
+NOT_EFFECTIVE_TIMESTAMP: Timestamp for permit inactivation.
+
+QUESTION_TMDL_ANSWER: Metadata on environmental considerations.
+
+3. Data Relationships
+
+Facility to Regulatory Measures
+
+Relationship: Many-to-One
+
+Details: Each facility can have multiple regulatory measures associated with it (e.g., different permits or applications).
+
+Facility to Environmental Information
+
+Relationship: One-to-Many
+
+Details: A facility can interact with multiple receiving water bodies and may report different modes of discharge.
+
+Facility to Certification
+
+Relationship: One-to-One
+
+Details: Each facility permit is certified by a designated individual, and this information is tracked uniquely.
+
+4. Data Grouping and Access
+
+Regulatory Data Group
+
+Includes attributes such as PERMIT_TYPE, APP_ID, WDID, STATUS.
+
+Access level: Regulatory officers and auditors.
+
+Facility Data Group
+
+Includes location, ownership, and size/activity details.
+
+Access level: Facility operators, regional managers, and environmental consultants.
+
+Environmental Data Group
+
+Includes discharge modes and receiving water details.
+
+Access level: Environmental analysts and researchers.
+
+Certification Data Group
+
+Includes certifier information and timestamps.
+
+Access level: Legal and compliance teams.
+
+5. Metadata Standards
+
+Data Types:
+
+text: For identifiers, names, and descriptive attributes.
+
+timestamp: For date-time data.
+
+numeric: For measurements and percentages.
+
+Validation Rules:
+
+All IDs must be unique.
+
+Dates must follow the YYYY-MM-DD format.
