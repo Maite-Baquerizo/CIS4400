@@ -1,0 +1,24 @@
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+from datetime import datetime
+import pandas as pd
+from sqlalchemy import create_engine
+
+def etl_pipeline():
+
+    data_csv = "cleaned_industrial_data.csv"
+    data = pd.read_csv(data_csv)
+    
+    # Transform
+    data['FACILITY_ZIP'] = data['FACILITY_ZIP'].astype(str).str.zfill(5)
+    data = data.dropna(subset=['PERMIT_TYPE', 'FACILITY_NAME', 'STATUS'])
+    
+    # Load
+    engine = create_engine('sqlite:///environmental_compliance.db')
+    data.to_sql('FACILITY', con=engine, if_exists='replace', index=False)
+
+with DAG('etl_pipeline', start_date=datetime(2023, 1, 1), schedule_interval='@daily') as dag:
+    etl_task = PythonOperator(
+        task_id='etl_pipeline_task',
+        python_callable=etl_pipeline
+    )
