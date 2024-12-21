@@ -1,0 +1,14 @@
+-- Verify Fact and Dimension Join
+SELECT 
+    f.fact_id, 
+    p.permit_type, 
+    fac.facility_name, 
+    r.region_board 
+FROM 
+    fact_permits f
+JOIN 
+    dim_permits p ON f.permit_id = p.permit_id
+JOIN 
+    dim_facilities fac ON f.facility_id = fac.facility_id
+JOIN 
+    dim_regions r ON f.region_board_id = r.region_board_id;
