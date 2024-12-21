@@ -21,7 +21,7 @@ Automate certification record management, including timestamps and certifier det
 Ensure secure, role-based access to sensitive data categories.
 
 ## Data Requirements
-Data Selection Criteria
+### Data Selection Criteria
 
 The dataset contains at least 10 columns and over 7500 rows.
 
@@ -29,7 +29,8 @@ Data is unaggregated, ensuring granularity for analysis.
 
 Data is sourced independently of common repositories like Kaggle.
 
-Dataset Description
+
+### Dataset Description
 
 Columns: 41, covering regulatory, facility, environmental, and certification data.
 
